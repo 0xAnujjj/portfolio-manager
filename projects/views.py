@@ -18,3 +18,20 @@ def project_create(request):
             form.save()
             return redirect('project_list')
     return render(request, 'projects/project_form.html', {'form': form})
+
+def project_update(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+    form = ProjectForm(instance=project)
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, request.FILES, instance=project)
+        if form.is_valid():
+            form.save()
+            return redirect('project_detail', pk=pk)
+    return render(request, 'projects/project_form.html', {'form': form})
+
+def project_delete(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+    if request.method == 'POST':
+        project.delete()
+        return redirect('project_list')
+    return render(request, 'projects/project_confirm_delete.html', {'project': project})
