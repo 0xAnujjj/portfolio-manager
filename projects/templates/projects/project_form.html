@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <title>Add Project</title>
+    <body>
+        <h1>Add New Project</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="sumbit">Save Project</button>
+        </form>
+        <a href="{% url 'project_list' %}">Back to Projects</a>
+    </body>
+</html>
