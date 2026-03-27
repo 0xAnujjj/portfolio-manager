@@ -120,5 +120,12 @@ STATIC_URL = 'static/'
 
 import os
 
-META_URL = '/media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = '/accounts/login/'
+
+#  **Step 3 — Create the login template. Django expects it at a specific path.
+# ** Create this folder structure: projects/templates/registration/ 

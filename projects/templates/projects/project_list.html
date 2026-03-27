@@ -4,6 +4,15 @@
     <title>My Projects</title>
 </head>
 <body>
+    {% if user.is_authenticated %}
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+{% else %}
+    <a href="{% url 'login' %}">Login</a>
+{% endif %}
+
     <h1>My Portfolio Projects</h1>
 
     {% for project in projects %}
