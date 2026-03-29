@@ -26,7 +26,7 @@ from decouple import config
 SECRET_KEY = 'SECRET_KEY'
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['portfolio-manager-production-fe20.up.railway.app', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -140,3 +140,6 @@ import dj_database_url
 DATABASE_URL = config('DATABASE_URL', default='')
 if DATABASE_URL:
     DATABASES['default'] = dj_database_url.config(default=DATABASE_URL)
+
+
+CSRF_TRUSTED_ORIGINS = ['https://portfolio-manager-production-fe20.up.railway.app']
